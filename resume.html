@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>個人履歷 - 114018065</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f4f9; }
+        .container { max-width: 800px; background: white; margin: auto; padding: 40px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        header { border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
+        h1 { margin: 0; color: #333; }
+        .info { color: #666; }
+        section { margin-bottom: 20px; }
+        h2 { border-left: 5px solid #007bff; padding-left: 10px; color: #333; }
+        ul { padding-left: 20px; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>亞洲大學學生</h1>
+        <p class="info">學號：114018065 | 聯絡信箱：114018065@asia.edu.tw</p>
+    </header>
+
+    <section>
+        <h2>個人簡介</h2>
+        <p>這是一個範例區塊，你可以在此填寫你的專長、目標或興趣。</p>
+    </section>
+
+    <section>
+        <h2>學歷</h2>
+        <ul>
+            <li>亞洲大學 - [你的系所名稱]</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>技能</h2>
+        <p id="skill-text">點擊下方按鈕顯示核心技能</p>
+        <button onclick="showSkills()">顯示技能詳情</button>
+    </section>
+</div>
+
+<script>
+    function showSkills() {
+        const skillEl = document.getElementById('skill-text');
+        skillEl.innerHTML = "<strong>核心技能：</strong><br> - Web 開發基礎 (HTML/CSS/JS)<br> - 團隊溝通與協作<br> - 快速學習能力";
+    }
+</script>
+
+</body>
+</html>
