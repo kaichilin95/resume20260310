@@ -1,52 +1,155 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>個人履歷 - 114018065</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林愷淇的個人履歷</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f4f9; }
-        .container { max-width: 800px; background: white; margin: auto; padding: 40px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        header { border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
-        h1 { margin: 0; color: #333; }
-        .info { color: #666; }
-        section { margin-bottom: 20px; }
-        h2 { border-left: 5px solid #007bff; padding-left: 10px; color: #333; }
-        ul { padding-left: 20px; }
-        button { background: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
-        button:hover { background: #0056b3; }
+        /* CSS 樣式設計 */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .resume-container {
+            background: white;
+            width: 100%;
+            max-width: 800px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            margin-right: 30px;
+        }
+
+        .header-info h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 2.5em;
+        }
+
+        .header-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        .btn-skill {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn-skill:hover {
+            background-color: #2980b9;
+        }
+
+        #skill-details {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e8f4fd;
+            border-radius: 5px;
+            display: none; /* 初始隱藏 */
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="resume-container">
     <header>
-        <h1>林愷淇</h1>
-        <p class="info">學號：114018065 | 聯絡信箱：114018065@asia.edu.tw</p>
+        <img src="images/profile.jpg" alt="林愷淇的照片" class="profile-pic">
+        <div class="header-info">
+            <h1>林愷淇</h1>
+            <p>學號：114018065</p>
+            <p>聯絡信箱：<a href="mailto:114018065@asia.edu.tw">114018065@asia.edu.tw</a></p>
+        </div>
     </header>
 
     <section>
         <h2>個人簡介</h2>
-        <p>這是一個範例區塊，你可以在此填寫你的專長、目標或興趣。</p>
+        <p>這是一個範例區塊，我目前就讀於亞洲大學。我對聽力與語言治療領域充滿熱情，致力於透過專業知識幫助有需要的人，並持續精進自己的溝通與臨床實踐技能。</p>
     </section>
 
     <section>
         <h2>學歷</h2>
         <ul>
-            <li>亞洲大學 - 聽力暨語言治療學系</li>
+            <li><strong>亞洲大學</strong> - 聽力暨語言治療學系</li>
         </ul>
     </section>
 
     <section>
         <h2>技能</h2>
-        <p id="skill-text">點擊下方按鈕顯示核心技能</p>
-        <button onclick="showSkills()">顯示技能詳情</button>
+        <p>點擊下方按鈕顯示核心技能</p>
+        <button class="btn-skill" onclick="toggleSkills()">顯示技能詳情</button>
+        
+        <div id="skill-details">
+            <ul>
+                <li>聽力檢測與評估</li>
+                <li>語言障礙治療規劃</li>
+                <li>基礎網頁設計 (HTML/CSS)</li>
+                <li>溝通與個案管理</li>
+            </ul>
+        </div>
     </section>
 </div>
 
 <script>
-    function showSkills() {
-        const skillEl = document.getElementById('skill-text');
-        skillEl.innerHTML = "<strong>核心技能：</strong><br> - Web 開發基礎 (HTML/CSS/JS)<br> - 團隊溝通與協作<br> - 快速學習能力";
+    // JavaScript 互動功能
+    function toggleSkills() {
+        var x = document.getElementById("skill-details");
+        var btn = document.querySelector(".btn-skill");
+        
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+            btn.textContent = "隱藏技能詳情";
+        } else {
+            x.style.display = "none";
+            btn.textContent = "顯示技能詳情";
+        }
     }
 </script>
 
