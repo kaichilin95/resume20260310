@@ -1,4 +1,16 @@
-<style>
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>林愷淇的個人履歷</title>
+
+    <style>
     :root {
         --sidebar-bg: #5a5a5a; /* 側邊欄深灰色 */
         --main-bg: #ffffff;
@@ -132,3 +144,121 @@
         }
     }
 </style>
+
+</head>
+
+<body>
+
+
+
+<div class="resume-container">
+
+    <header>
+
+        <img src="images/photo.jpg" alt="林愷淇的照片" class="profile-pic">
+
+        <div class="header-info">
+
+            <h1>林愷淇</h1>
+
+            <p>學號：114018065</p>
+
+            <p>聯絡信箱：<a href="mailto:114018065@asia.edu.tw">114018065@asia.edu.tw</a></p>
+
+        </div>
+
+    </header>
+
+
+
+    <section>
+
+        <h2>個人簡介</h2>
+
+        <p>這是一個範例區塊，我目前就讀於亞洲大學。我對聽力與語言治療領域充滿熱情，致力於透過專業知識幫助有需要的人，並持續精進自己的溝通與臨床實踐技能。</p>
+
+    </section>
+
+
+
+    <section>
+
+        <h2>學歷</h2>
+
+        <ul>
+
+            <li><strong>亞洲大學</strong> - 聽力暨語言治療學系</li>
+
+        </ul>
+
+    </section>
+
+
+
+    <section>
+
+        <h2>技能</h2>
+
+        <p>點擊下方按鈕顯示核心技能</p>
+
+        <button class="btn-skill" onclick="toggleSkills()">顯示技能詳情</button>
+
+        
+
+        <div id="skill-details">
+
+            <ul>
+
+                <li>聽力檢測與評估</li>
+
+                <li>語言障礙治療規劃</li>
+
+                <li>基礎網頁設計 (HTML/CSS)</li>
+
+                <li>溝通與個案管理</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<script>
+
+    // JavaScript 互動功能
+
+    function toggleSkills() {
+
+        var x = document.getElementById("skill-details");
+
+        var btn = document.querySelector(".btn-skill");
+
+        
+
+        if (x.style.display === "none" || x.style.display === "") {
+
+            x.style.display = "block";
+
+            btn.textContent = "隱藏技能詳情";
+
+        } else {
+
+            x.style.display = "none";
+
+            btn.textContent = "顯示技能詳情";
+
+        }
+
+    }
+
+</script>
+
+
+
+</body>
+
+</html>
