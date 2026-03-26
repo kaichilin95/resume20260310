@@ -5,136 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>林愷淇的個人履歷</title>
     <style>
+        /* 新的視覺樣式設計 */
         :root {
-            --sidebar-bg: #5a5a5a; /* 圖片中的深灰色 */
+            --sidebar-bg: #4a4a4a; /* 深灰色側邊欄 */
             --main-bg: #ffffff;
+            --accent-color: #3498db;
             --text-light: #ffffff;
             --text-dark: #333333;
-            --accent-gray: #e0e0e0;
+            --bg-page: #f0f2f5;
         }
 
         body {
             font-family: "Microsoft JhengHei", Arial, sans-serif;
-            background-color: #d1d1d1;
+            background-color: var(--bg-page);
             margin: 0;
             padding: 40px 20px;
             display: flex;
             justify-content: center;
+            line-height: 1.6;
         }
 
         .resume-container {
             background: var(--main-bg);
             width: 100%;
-            max-width: 850px;
-            display: grid;
-            grid-template-columns: 320px 1fr; /* 仿照模板的雙欄比例 */
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            min-height: 1100px;
+            max-width: 900px;
+            display: flex; /* 改用 Flexbox 佈局 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            min-height: 800px;
         }
 
-        /* --- 左側側邊欄 --- */
+        /* 左側邊欄 */
         .sidebar {
+            width: 300px;
             background-color: var(--sidebar-bg);
             color: var(--text-light);
-            padding: 0; /* 讓圖片能貼齊頂部 */
-            display: flex;
-            flex-direction: column;
+            padding: 40px 30px;
+            flex-shrink: 0;
         }
 
         .profile-pic {
             width: 100%;
-            height: 350px; /* 固定高度，仿照照片比例 */
+            aspect-ratio: 1 / 1.2;
             object-fit: cover;
-            display: block;
-        }
-
-        .sidebar-content {
-            padding: 40px 30px;
+            border: 3px solid #fff;
+            margin-bottom: 30px;
         }
 
         .sidebar h2 {
-            font-size: 1.4em;
-            letter-spacing: 2px;
-            border-bottom: 2px solid rgba(255,255,255,0.2);
-            padding-bottom: 10px;
+            font-size: 1.2em;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 8px;
             margin-top: 30px;
-            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .sidebar p, .sidebar li {
-            font-size: 0.95em;
-            color: #eeeeee;
-            margin-bottom: 10px;
-            list-style: none;
-        }
-
-        .sidebar ul {
-            padding: 0;
+        .sidebar p {
+            font-size: 0.9em;
+            color: #ddd;
+            margin: 10px 0;
+            word-wrap: break-word;
         }
 
         .sidebar a {
-            color: #fff;
+            color: #74b9ff;
             text-decoration: none;
         }
 
-        /* --- 右側主內容區 --- */
+        /* 右側主欄位 */
         .main-content {
-            background-color: white;
-            padding: 60px 50px;
-            position: relative;
-        }
-
-        /* 仿照模板右上角的裝飾灰塊 */
-        .main-content::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 200px;
-            background-color: var(--accent-gray);
-            z-index: 0;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 40%); /* 建立斜切效果 */
-        }
-
-        header {
-            position: relative;
-            z-index: 1;
-            margin-bottom: 60px;
+            flex-grow: 1;
+            padding: 50px 40px;
+            color: var(--text-dark);
         }
 
         header h1 {
-            font-size: 3.5em;
+            font-size: 2.8em;
             margin: 0;
-            color: #333;
-            letter-spacing: 8px;
-            font-weight: bold;
-        }
-
-        .subtitle {
-            font-size: 1.5em;
-            color: #666;
-            letter-spacing: 3px;
-            margin-top: 10px;
+            color: var(--text-dark);
+            border-bottom: 4px solid var(--sidebar-bg);
+            display: inline-block;
+            padding-bottom: 5px;
         }
 
         section {
-            position: relative;
-            z-index: 1;
-            margin-bottom: 50px;
+            margin-top: 40px;
         }
 
-        .main-content h2 {
-            font-size: 1.6em;
-            color: #333;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
         }
 
-        .main-content p, .main-content li {
-            color: #555;
-            line-height: 1.8;
+        h2::before {
+            content: "";
+            width: 5px;
+            height: 20px;
+            background: var(--accent-color);
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        ul {
+            padding-left: 20px;
         }
 
         .btn-skill {
@@ -142,25 +119,31 @@
             color: white;
             border: none;
             padding: 10px 20px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 0.9em;
-            margin-top: 10px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .btn-skill:hover {
+            background-color: var(--accent-color);
         }
 
         #skill-details {
             margin-top: 15px;
             padding: 20px;
-            background: #f4f4f4;
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent-color);
             display: none;
         }
 
-        /* 響應式 */
-        @media (max-width: 768px) {
+        /* 手機版適應 */
+        @media (max-width: 700px) {
             .resume-container {
-                grid-template-columns: 1fr;
+                flex-direction: column;
             }
-            .profile-pic {
-                height: 400px;
+            .sidebar {
+                width: auto;
             }
         }
     </style>
@@ -168,25 +151,17 @@
 <body>
 
 <div class="resume-container">
-    <aside class="sidebar">
+    <div class="sidebar">
         <img src="images/photo.jpg" alt="林愷淇的照片" class="profile-pic">
-        <div class="sidebar-content">
-            <h2>My Contact</h2>
-            <p>學號：114018065</p>
-            <p>Email: <a href="mailto:114018065@asia.edu.tw">114018065@asia.edu.tw</a></p>
-            
-            <h2>Education</h2>
-            <ul>
-                <li><strong>亞洲大學</strong></li>
-                <li>聽力暨語言治療學系</li>
-            </ul>
-        </div>
-    </aside>
+        
+        <h2>聯繫資訊</h2>
+        <p><strong>學號</strong><br>114018065</p>
+        <p><strong>電子信箱</strong><br><a href="mailto:114018065@asia.edu.tw">114018065@asia.edu.tw</a></p>
+    </div>
 
-    <main class="main-content">
+    <div class="main-content">
         <header>
             <h1>林愷淇</h1>
-            <div class="subtitle">Speech-Language Pathology Student</div>
         </header>
 
         <section>
@@ -195,7 +170,14 @@
         </section>
 
         <section>
-            <h2>核心技能</h2>
+            <h2>學歷</h2>
+            <ul>
+                <li><strong>亞洲大學</strong> - 聽力暨語言治療學系</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>技能</h2>
             <p>點擊下方按鈕顯示核心技能</p>
             <button class="btn-skill" onclick="toggleSkills()">顯示技能詳情</button>
             
@@ -208,7 +190,7 @@
                 </ul>
             </div>
         </section>
-    </main>
+    </div>
 </div>
 
 <script>
