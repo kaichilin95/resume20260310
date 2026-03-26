@@ -1,264 +1,230 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>林愷淇的個人履歷</title>
-
     <style>
-    :root {
-        --sidebar-bg: #5a5a5a; /* 側邊欄深灰色 */
-        --main-bg: #ffffff;
-        --accent-color: #3498db;
-        --text-light: #ffffff;
-        --text-dark: #333333;
-    }
+        :root {
+            --sidebar-bg: #5a5a5a; /* 圖片中的深灰色 */
+            --main-bg: #ffffff;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --accent-gray: #e0e0e0;
+        }
 
-    body {
-        font-family: "Microsoft JhengHei", Arial, sans-serif;
-        background-color: #e0e0e0;
-        margin: 0;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        line-height: 1.6;
-    }
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            background-color: #d1d1d1;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
 
-    .resume-container {
-        background: var(--main-bg);
-        width: 100%;
-        max-width: 900px;
-        display: grid;
-        grid-template-columns: 300px 1fr; /* 左右雙欄 */
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        min-height: 1000px;
-    }
-
-    /* 左側邊欄樣式 */
-    .sidebar {
-        background-color: var(--sidebar-bg);
-        color: var(--text-light);
-        padding: 40px 30px;
-    }
-
-    .profile-pic {
-        width: 180px;
-        height: 220px;
-        object-fit: cover;
-        border: 4px solid #fff;
-        margin-bottom: 30px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .sidebar h2 {
-        color: var(--text-light);
-        border-bottom: 1px solid rgba(255,255,255,0.3);
-        padding-bottom: 5px;
-        font-size: 1.2em;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-
-    .sidebar p, .sidebar a {
-        color: #ddd;
-        font-size: 0.9em;
-        text-decoration: none;
-        word-break: break-all;
-    }
-
-    /* 右側主欄位樣式 */
-    .main-content {
-        padding: 50px 40px;
-    }
-
-    header {
-        margin-bottom: 40px;
-    }
-
-    header h1 {
-        font-size: 3em;
-        margin: 0;
-        letter-spacing: 5px;
-        color: var(--text-dark);
-    }
-
-    header .subtitle {
-        font-size: 1.2em;
-        color: #777;
-        margin-top: 5px;
-        text-transform: uppercase;
-    }
-
-    section {
-        margin-bottom: 40px;
-    }
-
-    .main-content h2 {
-        color: var(--text-dark);
-        font-size: 1.5em;
-        border-bottom: 2px solid var(--text-dark);
-        display: inline-block;
-        margin-bottom: 20px;
-        padding-right: 20px;
-    }
-
-    ul {
-        padding-left: 20px;
-    }
-
-    .btn-skill {
-        background-color: #444;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .btn-skill:hover {
-        background-color: var(--accent-color);
-    }
-
-    #skill-details {
-        margin-top: 15px;
-        padding: 15px;
-        background: #f9f9f9;
-        border-left: 3px solid var(--accent-color);
-        display: none;
-    }
-
-    /* 響應式設計 */
-    @media (max-width: 768px) {
         .resume-container {
-            grid-template-columns: 1fr;
+            background: var(--main-bg);
+            width: 100%;
+            max-width: 850px;
+            display: grid;
+            grid-template-columns: 320px 1fr; /* 仿照模板的雙欄比例 */
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 1100px;
         }
+
+        /* --- 左側側邊欄 --- */
         .sidebar {
-            padding: 20px;
+            background-color: var(--sidebar-bg);
+            color: var(--text-light);
+            padding: 0; /* 讓圖片能貼齊頂部 */
+            display: flex;
+            flex-direction: column;
         }
-    }
-</style>
 
+        .profile-pic {
+            width: 100%;
+            height: 350px; /* 固定高度，仿照照片比例 */
+            object-fit: cover;
+            display: block;
+        }
+
+        .sidebar-content {
+            padding: 40px 30px;
+        }
+
+        .sidebar h2 {
+            font-size: 1.4em;
+            letter-spacing: 2px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            text-transform: uppercase;
+        }
+
+        .sidebar p, .sidebar li {
+            font-size: 0.95em;
+            color: #eeeeee;
+            margin-bottom: 10px;
+            list-style: none;
+        }
+
+        .sidebar ul {
+            padding: 0;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* --- 右側主內容區 --- */
+        .main-content {
+            background-color: white;
+            padding: 60px 50px;
+            position: relative;
+        }
+
+        /* 仿照模板右上角的裝飾灰塊 */
+        .main-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 200px;
+            background-color: var(--accent-gray);
+            z-index: 0;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 40%); /* 建立斜切效果 */
+        }
+
+        header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 60px;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            color: #333;
+            letter-spacing: 8px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #666;
+            letter-spacing: 3px;
+            margin-top: 10px;
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 50px;
+        }
+
+        .main-content h2 {
+            font-size: 1.6em;
+            color: #333;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .main-content p, .main-content li {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .btn-skill {
+            background-color: var(--sidebar-bg);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        #skill-details {
+            margin-top: 15px;
+            padding: 20px;
+            background: #f4f4f4;
+            display: none;
+        }
+
+        /* 響應式 */
+        @media (max-width: 768px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+            }
+            .profile-pic {
+                height: 400px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-
-
 <div class="resume-container">
-
-    <header>
-
+    <aside class="sidebar">
         <img src="images/photo.jpg" alt="林愷淇的照片" class="profile-pic">
-
-        <div class="header-info">
-
-            <h1>林愷淇</h1>
-
+        <div class="sidebar-content">
+            <h2>My Contact</h2>
             <p>學號：114018065</p>
-
-            <p>聯絡信箱：<a href="mailto:114018065@asia.edu.tw">114018065@asia.edu.tw</a></p>
-
-        </div>
-
-    </header>
-
-
-
-    <section>
-
-        <h2>個人簡介</h2>
-
-        <p>這是一個範例區塊，我目前就讀於亞洲大學。我對聽力與語言治療領域充滿熱情，致力於透過專業知識幫助有需要的人，並持續精進自己的溝通與臨床實踐技能。</p>
-
-    </section>
-
-
-
-    <section>
-
-        <h2>學歷</h2>
-
-        <ul>
-
-            <li><strong>亞洲大學</strong> - 聽力暨語言治療學系</li>
-
-        </ul>
-
-    </section>
-
-
-
-    <section>
-
-        <h2>技能</h2>
-
-        <p>點擊下方按鈕顯示核心技能</p>
-
-        <button class="btn-skill" onclick="toggleSkills()">顯示技能詳情</button>
-
-        
-
-        <div id="skill-details">
-
+            <p>Email: <a href="mailto:114018065@asia.edu.tw">114018065@asia.edu.tw</a></p>
+            
+            <h2>Education</h2>
             <ul>
-
-                <li>聽力檢測與評估</li>
-
-                <li>語言障礙治療規劃</li>
-
-                <li>基礎網頁設計 (HTML/CSS)</li>
-
-                <li>溝通與個案管理</li>
-
+                <li><strong>亞洲大學</strong></li>
+                <li>聽力暨語言治療學系</li>
             </ul>
-
         </div>
+    </aside>
 
-    </section>
+    <main class="main-content">
+        <header>
+            <h1>林愷淇</h1>
+            <div class="subtitle">Speech-Language Pathology Student</div>
+        </header>
 
+        <section>
+            <h2>個人簡介</h2>
+            <p>這是一個範例區塊，我目前就讀於亞洲大學。我對聽力與語言治療領域充滿熱情，致力於透過專業知識幫助有需要的人，並持續精進自己的溝通與臨床實踐技能。</p>
+        </section>
+
+        <section>
+            <h2>核心技能</h2>
+            <p>點擊下方按鈕顯示核心技能</p>
+            <button class="btn-skill" onclick="toggleSkills()">顯示技能詳情</button>
+            
+            <div id="skill-details">
+                <ul>
+                    <li>聽力檢測與評估</li>
+                    <li>語言障礙治療規劃</li>
+                    <li>基礎網頁設計 (HTML/CSS)</li>
+                    <li>溝通與個案管理</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 </div>
 
-
-
 <script>
-
-    // JavaScript 互動功能
-
     function toggleSkills() {
-
         var x = document.getElementById("skill-details");
-
         var btn = document.querySelector(".btn-skill");
-
         
-
         if (x.style.display === "none" || x.style.display === "") {
-
             x.style.display = "block";
-
             btn.textContent = "隱藏技能詳情";
-
         } else {
-
             x.style.display = "none";
-
             btn.textContent = "顯示技能詳情";
-
         }
-
     }
-
 </script>
 
-
-
 </body>
-
 </html>
