@@ -154,6 +154,10 @@
     <div class="sidebar">
         <img src="images/photo.jpg" alt="林愷淇的照片" class="profile-pic">
 
+        <audio controls>
+  <source src="mp3/background.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
         
         <h2>聯繫資訊</h2>
         <p><strong>學號</strong><br>114018065</p>
@@ -208,23 +212,6 @@
         }
     }
 </script>
-<audio id="bgm" autoplay loop playsinline>
-  <source src="mp3/background.mp3" type="audio/mpeg">
-</audio>
 
-<script>
-  const audio = document.getElementById("bgm");
-
-  // 嘗試直接播放
-  audio.play().catch(() => {
-    // 若被擋，快速解除靜音再播放
-    audio.muted = true;
-    audio.play();
-
-    setTimeout(() => {
-      audio.muted = false;
-    }, 100);
-  });
-</script>
 </body>
 </html>
