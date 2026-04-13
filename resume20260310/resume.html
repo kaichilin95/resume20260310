@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林愷淇的個人履歷</title>
+    <style>
+        /* 新的視覺樣式設計 */
+        :root {
+            --sidebar-bg: #4a4a4a; /* 深灰色側邊欄 */
+            --main-bg: #ffffff;
+            --accent-color: #3498db;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --bg-page: #f0f2f5;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            background-color: var(--bg-page);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            line-height: 1.6;
+        }
+
+        .resume-container {
+            background: var(--main-bg);
+            width: 100%;
+            max-width: 900px;
+            display: flex; /* 改用 Flexbox 佈局 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            min-height: 800px;
+        }
+
+        /* 左側邊欄 */
+        .sidebar {
+            width: 300px;
+            background-color: var(--sidebar-bg);
+            color: var(--text-light);
+            padding: 40px 30px;
+            flex-shrink: 0;
+        }
+
+        .profile-pic {
+            width: 100%;
+            aspect-ratio: 1 / 1.2;
+            object-fit: cover;
+            border: 3px solid #fff;
+            margin-bottom: 30px;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2em;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 8px;
+            margin-top: 30px;
+            letter-spacing: 1px;
+        }
+
+        .sidebar p {
+            font-size: 0.9em;
+            color: #ddd;
+            margin: 10px 0;
+            word-wrap: break-word;
+        }
+
+        .sidebar a {
+            color: #74b9ff;
+            text-decoration: none;
+        }
+
+        /* 右側主欄位 */
+        .main-content {
+            flex-grow: 1;
+            padding: 50px 40px;
+            color: var(--text-dark);
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin: 0;
+            color: var(--text-dark);
+            border-bottom: 4px solid var(--sidebar-bg);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        section {
+            margin-top: 40px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "";
+            width: 5px;
+            height: 20px;
+            background: var(--accent-color);
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .btn-skill {
+            background-color: var(--sidebar-bg);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .btn-skill:hover {
+            background-color: var(--accent-color);
+        }
+
+        #skill-details {
+            margin-top: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent-color);
+            display: none;
+        }
+
+        /* 手機版適應 */
+        @media (max-width: 700px) {
+            .resume-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume-container">
+    <div class="sidebar">
+        <img src="images/photo.jpg" alt="林愷淇的照片" class="profile-pic">
+
+        <audio controls>
+  <source src="mp3/background.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+        
+        <h2>聯繫資訊</h2>
+        <p><strong>學號</strong><br>114018065</p>
+        <p><strong>電子信箱</strong><br><a href="mailto:114018065@live.asia.edu.tw">114018065@asia.edu.tw</a></p>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>林愷淇</h1>
+        </header>
+
+        <section>
+            <h2>個人簡介</h2>
+            <p>我是林愷淇，目前就讀亞洲大學—聽力暨語言治療學系，對可以幫助別人的領域很有興趣。平時喜歡聽音樂，不僅能放鬆心情，也享受音樂帶來的快樂。個性開朗活潑，喜歡與人互動與分享。希望透過課程學習，培養更多專業能力，為未來發展打下基礎。</p>
+        </section>
+
+        <section>
+            <h2>學歷</h2>
+            <ul>
+                <li><strong>亞洲大學</strong> - 聽力暨語言治療學系</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>技能</h2>
+            <button class="btn-skill" onclick="toggleSkills()">顯示技能詳情</button>
+            
+            <div id="skill-details">
+                <ul>
+                    <li>傾聽他人需求的能力</li>
+                    <li>喜歡與人互動，具親和力</li>
+                    <li>團隊合作能力</li>
+                    <li>良好的溝通與表達能力</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script>
+    function toggleSkills() {
+        var x = document.getElementById("skill-details");
+        var btn = document.querySelector(".btn-skill");
+        
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+            btn.textContent = "隱藏技能詳情";
+        } else {
+            x.style.display = "none";
+            btn.textContent = "顯示技能詳情";
+        }
+    }
+</script>
+
+</body>
+</html>
